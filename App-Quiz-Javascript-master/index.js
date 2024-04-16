@@ -10,29 +10,29 @@ let pontuacaoGrupoDois=0
 
 
 
-
 let currentQuestionIndex = 0
+
 let totalCorrect = 0
 
 
 
 const questions = [
   {
-    question: "Dentro de qual elemento HTML colocamos o JavaScript?",
+    question: "Quais são algumas das mudanças físicas comuns que ocorrem durante a meia-idade?",
     answers: [
-      { text: "<javascript>", correct: false },
-      { text: "<js>", correct: false },
-      { text: "<script>", correct: true },
-      { text: "<scripting>", correct: false }
+      { text: "Melhora na visão de perto", correct: false },
+      { text: "Redução da capacidade auditiva", correct: false },
+      { text: "Perda de cabelo", correct: true },
+      { text: "Aumento da densidade óssea", correct: false }
     ]
   },
   {
-    question: "Onde é o lugar correto para inserir JavaScript?",
+    question: "Como as questões de saúde mudam ou se tornam mais relevantes durante a meia-idade?",
     answers: [
-      { text: "Tanto no <head> quanto no <body> está correto", correct: true },
-      { text: "No <body>", correct: false },
-      { text: "No <head>", correct: false },
-      { text: "Em outro lugar", correct: false }
+      { text: "Aumento do risco de doenças cardíacas", correct: true },
+      { text: "Diminuição do risco de osteoporose", correct: false },
+      { text: "Redução do risco de diabetes tipo 2", correct: false },
+      { text: "Melhora da função pulmonar", correct: false }
     ]
   },
   {
@@ -94,14 +94,22 @@ const divForm = document.querySelector(".letra")
 const equipeResponde = document.querySelector("#equipeResponde")
 const divRespode = document.querySelector(".nomesResponde")
 const header = document.querySelector("header")
+
+const pontosEquipeUm = document.querySelector("#pontosTime1")
+const pontosEquipeDois = document.querySelector("#PontosTime2")
+
+const nomeHeaderUm = document.querySelector("#nomeTime1")
+const nomeHeaderDois = document.querySelector("#NomeTime2")
+
+
 header.classList.add("hide")
 btnEviarNome.addEventListener("click",(e)=>{
   e.preventDefault()
   const nomeEquipeUm = nomeUm.value
   const nomeEquipeDois = nomeDois.value
   divRespode.classList.add("hide")
-  nomesDeTimes(nomeEquipeUm,nomeEquipeDois)
-  
+
+  nomeHEader(nomeEquipeUm,nomeEquipeDois)
   hide()
   play()
 
@@ -118,7 +126,7 @@ function startGame() {
 function displayNextQuestion() {
   resetState()
   
-  if (questions.length === currentQuestionIndex) {
+  if (currentQuestionIndex === 5) {
     return finishGame()
   }
 
@@ -141,6 +149,7 @@ function resetState() {
   while($answersContainer.firstChild) {
     $answersContainer.removeChild($answersContainer.firstChild)
   }
+  
 
   document.body.removeAttribute("class")
   $nextQuestionButton.classList.add("hide")
@@ -150,38 +159,44 @@ function selectAnswer(event) {
   const answerClicked = event.target
 
   if (answerClicked.dataset.correct) {
-    if(nomeEquipeUm == nomeEquipeUm){
-      pontuacaoGrupoUm +=1
-    }else if(nomeEquipeDois == nomeEquipeDois){
-      pontuacaoGrupoDois+=1
-    }
+    pontuacao(nomeEquipeUm)
+    pontuacaoGrupoDoiss(nomeEquipeDois)
+
     document.body.classList.add("correct")
+    document.querySelectorAll(".answer").forEach(button => {
+      button.disabled = true
+    })
+    
+    
     totalCorrect++
   } else {
-    if(nomeEquipeUm == nomeEquipeUm){
-      if(pontuacaoGrupoUm >0){
-        pontuacaoGrupoUm -=1
-      }
-    }else if(nomeEquipeDois == nomeEquipeDois){
-      if(pontuacaoGrupoDois >0){
-        pontuacaoGrupoDois -=1
-      }
-    }
+    perdePontoGrupoUm(nomeEquipeUm)
+    perdePontoGrupoDois(nomeEquipeDois)
+
     document.body.classList.add("incorrect") 
-  }
-
-  document.querySelectorAll(".answer").forEach(button => {
-    button.disabled = true
-
-    if (button.dataset.correct) {
-      button.classList.add("correct")
-    } else {
-      button.classList.add("incorrect")
+    document.querySelectorAll(".answer").forEach(button => {
+      button.disabled = true
+    })
+    if(equipeResponde.textContent == nomeEquipeUm){
+      equipeResponde.textContent = nomeEquipeDois
+    }else if (equipeResponde.textContent == nomeEquipeDois){
+      equipeResponde.textContent = nomeEquipeUm
     }
-  })
+
+  }
   
-  $nextQuestionButton.classList.remove("hide")
   currentQuestionIndex++
+  $nextQuestionButton.classList.remove("hide")
+  mostrarPontos()
+  // document.querySelectorAll(".answer").forEach(button => {
+  //   button.disabled = true
+  //   if (button.dataset.correct) {
+  //     button.classList.add("correct")
+  //   } else {
+  //     button.classList.add("incorrect")
+  //   }
+  // })
+  
 }
 
 function finishGame() {
@@ -243,10 +258,23 @@ function finishGame() {
   }
   function verificar (letra){
     if(letra == "a"){
-      equipeResponde.textContent = `${nomeEquipeUm} Responde`
+      equipeResponde.textContent = `${nomeEquipeUm}`
 
     }else if (letra == "l"){
-      equipeResponde.textContent = `${nomeEquipeDois} Responde`
+      equipeResponde.textContent = `${nomeEquipeDois}`
+    }
+  }
+  
+  
+  function pontuacao (nomeUm){
+    if(equipeResponde.textContent == nomeUm){
+      pontuacaoGrupoUm +=1
+    }
+    
+  }
+  function pontuacaoGrupoDoiss(NomeDois){
+    if( equipeResponde.textContent == NomeDois){
+      pontuacaoGrupoDois +=1
     }
   }
   
@@ -257,16 +285,32 @@ function hide(){
   conteiner.style.display = "flex"
 }
 
-function nomesDeTimes (nomeUm,NomeDois){
-  if(nomeUm == nomeUm){
-    pontuacaoGrupoUm +=1
-  }else if (NomeDois == NomeDois){
-    pontuacaoGrupoDois +=1
+
+
+function perdePontoGrupoUm (nome){
+  if(equipeResponde.textContent == nome){
+    if(pontuacaoGrupoUm > 0){
+      pontuacaoGrupoUm -=1
+    }
+    
   }
-  
 }
-function pontuacao (){
-  
+function perdePontoGrupoDois(nome){
+  if(equipeResponde.textContent == nome){
+    if(pontuacaoGrupoDois > 0){
+      pontuacaoGrupoUm -=1
+    }
+    
+  }
+} 
+
+function mostrarPontos(){
+  pontosEquipeUm.textContent = pontuacaoGrupoUm
+  pontosEquipeDois.textContent = pontuacaoGrupoDois
+}
+function nomeHEader(nomeUm,nomeDois){
+  nomeHeaderUm.textContent = nomeUm
+  nomeHeaderDois.textContent = nomeDois 
 }
 
 
