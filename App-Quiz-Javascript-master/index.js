@@ -6,7 +6,7 @@ const $answersContainer = document.querySelector(".answers-container")
 const $answers = document.querySelectorAll(".answer")
 
 let pontuacaoGrupoUm = 0
-let pontuacaoGrupoDois=0
+let pontuacaoGrupoDois = 0
 
 
 
@@ -87,7 +87,7 @@ const btnEviarNome = document.querySelector("#EnviarNome")
 const nomeUm = document.querySelector("#nome1")
 const nomeDois = document.querySelector("#nome2")
 const form = document.querySelector("#form")
-const conteiner = document.querySelector(".container") 
+const conteiner = document.querySelector(".container")
 const quemComeca = document.querySelector("#quemComeca")
 const equipeComeca = document.querySelector("#equipeComeca")
 const divForm = document.querySelector(".letra")
@@ -101,223 +101,220 @@ const pontosEquipeDois = document.querySelector("#PontosTime2")
 const nomeHeaderUm = document.querySelector("#nomeTime1")
 const nomeHeaderDois = document.querySelector("#NomeTime2")
 
+function all() {
+  header.classList.add("hide")
+  btnEviarNome.addEventListener("click", (e) => {
+    e.preventDefault()
+    let nomeEquipeUm = nomeUm.value
+    let nomeEquipeDois = nomeDois.value
+    divRespode.classList.add("hide")
 
-header.classList.add("hide")
-btnEviarNome.addEventListener("click",(e)=>{
-  e.preventDefault()
-  const nomeEquipeUm = nomeUm.value
-  const nomeEquipeDois = nomeDois.value
-  divRespode.classList.add("hide")
+    nomeHEader(nomeEquipeUm, nomeEquipeDois)
+    hide()
+    play()
 
-  nomeHEader(nomeEquipeUm,nomeEquipeDois)
-  hide()
-  play()
+    $startGameButton.addEventListener("click", startGame)
+    $nextQuestionButton.addEventListener("click", displayNextQuestion)
 
-  $startGameButton.addEventListener("click", startGame)
-  $nextQuestionButton.addEventListener("click", displayNextQuestion)
-
-function startGame() {
-  $startGameButton.classList.add("hide")
-  $questionsContainer.classList.remove("hide")
-  $answersContainer.classList.add("hide")
-  displayNextQuestion()
-}
-
-function displayNextQuestion() {
-  resetState()
-  
-  if (currentQuestionIndex === 5) {
-    return finishGame()
-  }
-
-  $questionText.textContent = questions[currentQuestionIndex].question
-  questions[currentQuestionIndex].answers.forEach(answer => {
-    const newAsnwer = document.createElement("button")
-    newAsnwer.classList.add("button", "answer")
-    newAsnwer.textContent = answer.text
-    if (answer.correct) {
-      
-      newAsnwer.dataset.correct = answer.correct
-    }
-    $answersContainer.appendChild(newAsnwer)
-
-    newAsnwer.addEventListener("click", selectAnswer)
-  })
-}
-
-function resetState() {
-  while($answersContainer.firstChild) {
-    $answersContainer.removeChild($answersContainer.firstChild)
-  }
-  
-
-  document.body.removeAttribute("class")
-  $nextQuestionButton.classList.add("hide")
-}
-
-function selectAnswer(event) {
-  const answerClicked = event.target
-
-  if (answerClicked.dataset.correct) {
-    pontuacao(nomeEquipeUm)
-    pontuacaoGrupoDoiss(nomeEquipeDois)
-
-    document.body.classList.add("correct")
-    document.querySelectorAll(".answer").forEach(button => {
-      button.disabled = true
-    })
-    
-    
-    totalCorrect++
-  } else {
-    perdePontoGrupoUm(nomeEquipeUm)
-    perdePontoGrupoDois(nomeEquipeDois)
-
-    document.body.classList.add("incorrect") 
-    document.querySelectorAll(".answer").forEach(button => {
-      button.disabled = true
-    })
-    if(equipeResponde.textContent == nomeEquipeUm){
-      equipeResponde.textContent = nomeEquipeDois
-    }else if (equipeResponde.textContent == nomeEquipeDois){
-      equipeResponde.textContent = nomeEquipeUm
+    function startGame() {
+      $startGameButton.classList.add("hide")
+      $questionsContainer.classList.remove("hide")
+      $answersContainer.classList.add("hide")
+      displayNextQuestion()
     }
 
-  }
-  
-  currentQuestionIndex++
-  $nextQuestionButton.classList.remove("hide")
-  mostrarPontos()
-  // document.querySelectorAll(".answer").forEach(button => {
-  //   button.disabled = true
-  //   if (button.dataset.correct) {
-  //     button.classList.add("correct")
-  //   } else {
-  //     button.classList.add("incorrect")
-  //   }
-  // })
-  
-}
+    function displayNextQuestion() {
+      resetState()
 
-function finishGame() {
-  const totalQuestions = questions.length
-  const performance = Math.floor(totalCorrect * 100 / totalQuestions)
-  
-  let message = ""
+      if (currentQuestionIndex === 5) {
+        return finishGame()
+      }
 
-  switch (true) {
-    case (performance >= 90):
-      message = "Excelente :)"
-      break
-    case (performance >= 70):
-      message = "Muito bom :)"
-      break
-    case (performance >= 50):
-      message = "Bom"
-      break
-    default:
-      message = "Pode melhorar :("
-  }
+      $questionText.textContent = questions[currentQuestionIndex].question
+      questions[currentQuestionIndex].answers.forEach(answer => {
+        const newAsnwer = document.createElement("button")
+        newAsnwer.classList.add("button", "answer")
+        newAsnwer.textContent = answer.text
+        if (answer.correct) {
 
-  $questionsContainer.innerHTML = 
-  `
-    <p class="final-message">
-      Você acertou ${totalCorrect} de ${totalQuestions} questões!
-      <span>Resultado: ${message}</span>
-    </p>
-    <button 
-      onclick=window.location.reload() 
-      class="button"
-    >
-      Refazer teste
-    </button>
-  `
-}
+          newAsnwer.dataset.correct = answer.correct
+        }
+        $answersContainer.appendChild(newAsnwer)
 
-
-
-
-
-  function play(){
-    document.body.addEventListener("keyup",(e)=>{
-      
-      const EquipeStart = equipeComeca.value
-      primeiraLetra(EquipeStart)
-      e.preventDefault()
-    })
-  }
-  function primeiraLetra(equipe){
-    const letra = equipe[0]
-    divForm.classList.add("hide")
-    $answersContainer.classList.remove("hide")
-    divRespode.classList.remove("hide")
-    header.classList.remove("hide")
-    verificar(letra)
-  
-  
-  }
-  function verificar (letra){
-    if(letra == "a"){
-      equipeResponde.textContent = `${nomeEquipeUm}`
-
-    }else if (letra == "l"){
-      equipeResponde.textContent = `${nomeEquipeDois}`
+        newAsnwer.addEventListener("click", selectAnswer)
+      })
     }
-  }
+
+    function resetState() {
+      while ($answersContainer.firstChild) {
+        $answersContainer.removeChild($answersContainer.firstChild)
+      }
+
+
+      document.body.removeAttribute("class")
+      $nextQuestionButton.classList.add("hide")
+    }
+
+    function selectAnswer(event) {
+      const answerClicked = event.target
+
+      if (answerClicked.dataset.correct) {
+        pontuacao(nomeEquipeUm)
+        pontuacaoGrupoDoiss(nomeEquipeDois)
+
+        document.body.classList.add("correct")
+        document.querySelectorAll(".answer").forEach(button => {
+          button.disabled = true
+        })
+
+
+        totalCorrect++
+      } else {
+        perdePontoGrupoUm(nomeEquipeUm)
+        perdePontoGrupoDois(nomeEquipeDois)
+
+        document.body.classList.add("incorrect")
+        document.querySelectorAll(".answer").forEach(button => {
+          button.disabled = true
+        })
+        if (equipeResponde.textContent == nomeEquipeUm) {
+          equipeResponde.textContent = nomeEquipeDois
+        } else if (equipeResponde.textContent == nomeEquipeDois) {
+          equipeResponde.textContent = nomeEquipeUm
+        }
+
+      }
+
+      currentQuestionIndex++
+      $nextQuestionButton.classList.remove("hide")
+      mostrarPontos()
+      // document.querySelectorAll(".answer").forEach(button => {
+      //   button.disabled = true
+      //   if (button.dataset.correct) {
+      //     button.classList.add("correct")
+      //   } else {
+      //     button.classList.add("incorrect")
+      //   }
+      // })
+
+    }
+
+    function finishGame() {
+      if (pontuacaoGrupoDois > pontuacaoGrupoUm) {
+        $questionsContainer.innerHTML =
+          `
+      <p class="final-message">
+        Grupo ${nomeEquipeDois} Ganhou!
+        
+      </p>
+      <button 
+        onclick=removeResponde() 
+        class="button"
+      >
+        Reiniciar
+      </button>
+    `
+      } else if (pontuacaoGrupoUm > pontuacaoGrupoDois) {
+        $questionsContainer.innerHTML =
+          `
+      <p class="final-message">
+        Grupo ${nomeEquipeUm} Ganhou!
+        
+      </p>
+      <button 
+        onclick=removeResponde()
+        class="button"
+      >
+        Reiniciar
+      </button>
+    `
+      }
+
+
+    }
+    function play() {
+      document.body.addEventListener("keyup", (e) => {
+
+        const EquipeStart = equipeComeca.value
+        primeiraLetra(EquipeStart)
+        e.preventDefault()
+      })
+    }
+  function primeiraLetra(equipe) {
+      const letra = equipe[0]
+      divForm.classList.add("hide")
+      $answersContainer.classList.remove("hide")
+      divRespode.classList.remove("hide")
+      header.classList.remove("hide")
+      verificar(letra)
+
+
+    }
+  function verificar(letra) {
+      if (letra == "a") {
+        equipeResponde.textContent = `${nomeEquipeUm}`
+
+      } else if (letra == "l") {
+        equipeResponde.textContent = `${nomeEquipeDois}`
+      }
+    }
   
   
-  function pontuacao (nomeUm){
-    if(equipeResponde.textContent == nomeUm){
-      pontuacaoGrupoUm +=1
+  function pontuacao(nomeUm) {
+      if (equipeResponde.textContent == nomeUm) {
+        pontuacaoGrupoUm += 1
+      }
+
     }
-    
-  }
-  function pontuacaoGrupoDoiss(NomeDois){
-    if( equipeResponde.textContent == NomeDois){
-      pontuacaoGrupoDois +=1
+  function pontuacaoGrupoDoiss(NomeDois) {
+      if (equipeResponde.textContent == NomeDois) {
+        pontuacaoGrupoDois += 1
+      }
     }
-  }
   
 })
+}
 
-function hide(){
+
+
+
+
+
+
+
+
+
+function hide() {
   form.style.display = "none"
   conteiner.style.display = "flex"
 }
 
 
 
-function perdePontoGrupoUm (nome){
-  if(equipeResponde.textContent == nome){
-    if(pontuacaoGrupoUm > 0){
-      pontuacaoGrupoUm -=1
+function perdePontoGrupoUm(nome) {
+  if (equipeResponde.textContent == nome) {
+    if (pontuacaoGrupoUm > 0) {
+      pontuacaoGrupoUm--
     }
-    
+
   }
 }
-function perdePontoGrupoDois(nome){
-  if(equipeResponde.textContent == nome){
-    if(pontuacaoGrupoDois > 0){
-      pontuacaoGrupoUm -=1
+function perdePontoGrupoDois(nome) {
+  if (equipeResponde.textContent == nome) {
+    if (pontuacaoGrupoDois > 0) {
+      pontuacaoGrupoUm--
     }
-    
-  }
-} 
 
-function mostrarPontos(){
+  }
+}
+
+function mostrarPontos() {
   pontosEquipeUm.textContent = pontuacaoGrupoUm
   pontosEquipeDois.textContent = pontuacaoGrupoDois
 }
-function nomeHEader(nomeUm,nomeDois){
+function nomeHEader(nomeUm, nomeDois) {
   nomeHeaderUm.textContent = nomeUm
-  nomeHeaderDois.textContent = nomeDois 
+  nomeHeaderDois.textContent = nomeDois
 }
-
-
-
-
-
-
-
 
 
