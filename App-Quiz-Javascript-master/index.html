@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" async></script>
+
+  <title>Passa ou repassa</title>
+</head>
+<header> <div><span id="nomeTime1">nome</span><span id="pontosTime1">pontos</span></div><div><span id="NomeTime2">nome</span><span id="PontosTime2">pontos</span></div></header>
+
+
+
+
+<body>
+  <form id="form">
+    <div class="conteinerForm">
+      <div class="nomeEquipeUm">
+        <p>escolha o nome da equipe um</p>
+        <input id="nome1" type="text"placeholder ="nomde da equipe Um">
+      </div>
+      <div class="nomeEquipeDois">
+        <p>escolha o nome da equipe dois</p>
+        <input id="nome2" type="text" placeholder="nome da equipe dois">
+      </div>
+      <button id="EnviarNome">Enviar</button>
+    </div>
+  </form>
+
+
+  
+
+  <div class="container">
+    <div class="questions-container hide">
+      <div class="nomesResponde"><span id="equipeResponde">nome</span></div>
+      <span class="question">Pergunta aqui?</span>
+      <div class="letra"><form id="quemComeca" action=""><input id="equipeComeca" type="text"></form></div>
+      <div class="answers-container">
+        <button class="answer button">Resposta 1</button>
+        <button class="answer button">Resposta 2</button>
+        <button class="answer button">Resposta 3</button>
+        <button class="answer button">Resposta 4</button>
+      </div>
+    </div>
+    <div class="controls-container">
+      <button class="start-quiz button">Começar!</button>
+      <button class="next-question button hide">Próxima pergunta</button>
+    </div>
+  </div>
+</body>
+</html>
