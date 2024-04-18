@@ -8,13 +8,32 @@ const $answers = document.querySelectorAll(".answer")
 let pontuacaoGrupoUm = 0
 let pontuacaoGrupoDois=0
 
+function randomNumber (){
+  return Math.floor(Math.random()*6)
+  
+}
+let NumRandom = randomNumber()
+console.log(NumRandom)
 
 
 let currentQuestionIndex = 0
+let indexQuestionDois = 0 
 
-let totalCorrect = 0
 
 
+const desafios = [{desafio:" Coloque músicas animadas e faça uma versão improvisada da dança das cadeiras, onde os alunos devem dançar ao redor das cadeiras enquanto a música toca e sentar quando ela parar"},
+{ desafio: "Divida a turma em equipes e faça um jogo de mímica, onde cada equipe deve representar uma palavra ou frase engraçada sem usar palavras."
+},{
+  desafio:"Peça aos alunos para desenharem algo na lousa com os olhos vendados. Você pode dar instruções simples, como desenhar um animal, uma casa ou um rosto. O resultado geralmente é hilário e pode render boas risadas"
+},{
+  desafio:"Comece uma história engraçada e peça aos alunos para continuá-la, um por vez, adicionando um trecho cada um"
+},{
+  desafio:"Peça aos alunos para formarem duplas e criarem trajes improvisados usando papel, fita adesiva e outros materiais disponíveis na sala de aula."
+},{
+  desafio:"Divida a turma em grupos e peça a cada grupo para criar um trocadilho engraçado usando uma palavra específica que você fornecer. Depois, cada grupo deve apresentar seu trocadilho para a classe e ver quem consegue arrancar mais risadas."
+}]
+let challenge = desafios[NumRandom].desafio
+console.log(challenge)
 
 const questions = [
   {
@@ -59,25 +78,54 @@ const questions = [
       { text: 'msgBox("Hello World");', correct: false },
       { text: 'alertBox("Hello World");', correct: false }
     ]
-  },
-  {
-    question: 'Como podemos criar uma função no JavaScript?',
-    answers: [
-      { text: 'function:myFunction()', correct: false },
-      { text: 'function myFunction()', correct: true },
-      { text: 'function = myFunction()', correct: false },
-      { text: 'Nenhum desses códigos criaria uma função', correct: false }
-    ]
-  },
-  {
-    question: 'Como podemos chamar uma função chamada "minhaFuncao"?',
-    answers: [
-      { text: 'call minhaFuncao()', correct: false },
-      { text: 'call function minhaFuncao()', correct: false },
-      { text: 'Nenhum desses códigos chamaria essa função', correct: false },
-      { text: 'minhaFuncao()', correct: true },
-    ]
-  },
+  }
+]
+
+const questionDois = [ {
+  question: "Qual das seguintes preocupações é comum para muitas pessoas durante a meia-idade em relação aos pais idosos?",
+  answers: [
+    { text: "Melhora na visão de perto", correct: false },
+    { text: "Redução da capacidade auditiva", correct: false },
+    { text: "Perda de cabelo", correct: true },
+    { text: "Aumento da densidade óssea", correct: false }
+  ]
+},
+{
+  question: "Durante a meia-idade, qual das seguintes atividades pode contribuir para a saúde física e mental?",
+  answers: [
+    { text: "Melhora na visão de perto", correct: false },
+    { text: "Redução da capacidade auditiva", correct: false },
+    { text: "Perda de cabelo", correct: true },
+    { text: "Aumento da densidade óssea", correct: false }
+  ]
+},
+{
+  question: "Durante a meia-idade, qual das seguintes preocupações financeiras é mais comum para indivíduos nessa faixa etária?",
+  answers: [
+    { text: "Melhora na visão de perto", correct: false },
+    { text: "Redução da capacidade auditiva", correct: false },
+    { text: "Perda de cabelo", correct: true },
+    { text: "Aumento da densidade óssea", correct: false }
+  ]
+},
+{
+  question: "Durante a meia-idade, qual das seguintes atividades pode ser benéfica para a saúde física?",
+  answers: [
+    { text: "Melhora na visão de perto", correct: false },
+    { text: "Redução da capacidade auditiva", correct: false },
+    { text: "Perda de cabelo", correct: true },
+    { text: "Aumento da densidade óssea", correct: false }
+  ]
+},
+{
+  question: "Durante a meia-idade, qual é uma preocupação comum relacionada à vida profissional?",
+  answers: [
+    { text: "Melhora na visão de perto", correct: false },
+    { text: "Redução da capacidade auditiva", correct: false },
+    { text: "Perda de cabelo", correct: true },
+    { text: "Aumento da densidade óssea", correct: false }
+  ]
+},
 ]
 
 
@@ -101,6 +149,8 @@ const pontosEquipeDois = document.querySelector("#PontosTime2")
 const nomeHeaderUm = document.querySelector("#nomeTime1")
 const nomeHeaderDois = document.querySelector("#NomeTime2")
 
+const selected  = document.querySelector("#perguntas")
+
 
 header.classList.add("hide")
 btnEviarNome.addEventListener("click",(e)=>{
@@ -108,6 +158,9 @@ btnEviarNome.addEventListener("click",(e)=>{
   let nomeEquipeUm = nomeUm.value
   let nomeEquipeDois = nomeDois.value
   divRespode.classList.add("hide")
+  let selectedValue = selected.value
+  
+
 
   nomeHEader(nomeEquipeUm,nomeEquipeDois)
   hide()
@@ -130,8 +183,10 @@ function displayNextQuestion() {
     return finishGame()
   }
 
-  $questionText.textContent = questions[currentQuestionIndex].question
-  questions[currentQuestionIndex].answers.forEach(answer => {
+  console.log(selectedValue)
+  if(selectedValue == "1"){
+    $questionText.textContent = questions[currentQuestionIndex].question
+    questions[currentQuestionIndex].answers.forEach(answer => {
     const newAsnwer = document.createElement("button")
     newAsnwer.classList.add("button", "answer")
     newAsnwer.textContent = answer.text
@@ -143,6 +198,22 @@ function displayNextQuestion() {
 
     newAsnwer.addEventListener("click", selectAnswer)
   })
+  }else if(selectedValue =="2"){
+    $questionText.textContent = questionDois[indexQuestionDois].question
+    questionDois[indexQuestionDois].answers.forEach(answer => {
+    const newAsnwer = document.createElement("button")
+    newAsnwer.classList.add("button", "answer")
+    newAsnwer.textContent = answer.text
+    if (answer.correct) {
+      
+      newAsnwer.dataset.correct = answer.correct
+    }
+    $answersContainer.appendChild(newAsnwer)
+
+    newAsnwer.addEventListener("click", selectAnswer)
+  })
+  }
+  
 }
 
 function resetState() {
@@ -168,7 +239,7 @@ function selectAnswer(event) {
     })
     
     
-    totalCorrect++
+    
   } else {
       perdePontoGrupoUm(nomeEquipeUm)
       perdePontoGrupoDois(nomeEquipeDois)
@@ -186,6 +257,7 @@ function selectAnswer(event) {
   }
   
   currentQuestionIndex++
+  indexQuestionDois++
   $nextQuestionButton.classList.remove("hide")
   mostrarPontos()
   // document.querySelectorAll(".answer").forEach(button => {
@@ -200,6 +272,8 @@ function selectAnswer(event) {
 }
 
 function finishGame() {
+  
+  
   if (pontuacaoGrupoDois>pontuacaoGrupoUm){
     $questionsContainer.innerHTML = 
     `
@@ -207,8 +281,16 @@ function finishGame() {
         Grupo ${nomeEquipeDois} Ganhou!
         
       </p>
+      <p class="final-message">
+        A equipe ${nomeEquipeUm} Tera que Pagar um DESAFIO!
+      </p>
+      <h1>DESAFIO</h1>
+      <p class="final-message">
+        "${challenge}
+      </p>
+
       <button 
-        onclick=removeResponde() 
+        onclick=window.location.reload()
         class="button"
       >
         Reiniciar
@@ -221,13 +303,35 @@ function finishGame() {
         Grupo ${nomeEquipeUm} Ganhou!
         
       </p>
+      <p class="final-message">
+        A equipe ${nomeEquipeDois} Tera que Pagar um DESAFIO!
+      </p>
+      <h1>DESAFIO</h1>
+      <p class="final-message">
+        "${challenge}
+      </p>
       <button 
-        onclick=removeResponde()
+        onclick=window.location.reload()
         class="button"
       >
         Reiniciar
       </button>
     `
+  }else if(pontuacaoGrupoUm==pontuacaoGrupoDois){
+    $questionsContainer.innerHTML =  ` 
+    <h1>EMPATE</h1>
+    <p class="final-message">
+      Nimguem paga!
+    </p>
+    
+    <button 
+      onclick=window.location.reload()
+      class="button"
+    >
+      Reiniciar
+    </button>
+  `
+     
   }
 
  
@@ -298,7 +402,7 @@ function perdePontoGrupoUm (nome){
 function perdePontoGrupoDois(nome){
   if(equipeResponde.textContent == nome){
     if(pontuacaoGrupoDois > 0){
-      pontuacaoGrupoUm --
+      pontuacaoGrupoDois --
     }
     
   }
