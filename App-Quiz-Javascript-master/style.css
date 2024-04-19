@@ -22,17 +22,25 @@ header{
   width: 100%;
   height: 10%;
   position: absolute;
-  background-color: #049b48;
+  background-color: #4863f7;
   display: flex;
   justify-content: space-around;
+  box-shadow: 6px 0px 20px black;
 }
 header div{
   display: flex;
   flex-direction:column ;
 }
+header #nomeTime1,#NomeTime2{
+  font-size: 2.5rem;
+}
+header span{
+  font-size: 2.5rem;
+}
+
 
 #form{
-  background-color: #049b48;
+  
   width: 35%;
   height: 35%;
   display: flex;
@@ -41,30 +49,49 @@ header div{
   border-radius: 10px;
 }
 .conteinerForm{
+  border: 1px solid #4863f7;
+  box-shadow: 6px 6px 10px  black;
   background-color: #121214;
   border-radius: 10px;
   width: 90%;
-  height: 90%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .conteinerForm p{
-  font-size: 20px;
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 input[type=text]{
-  padding: 10px 20px;
+  padding: 15px 20px;
   margin-bottom: 20px;
   width: 100%;
+  border-radius: 25px;
+  border-bottom: none;
+  
+  
+  outline: none;
 }
 #EnviarNome{
   padding: 10px 20px;
   border-radius: 20px;
   border: none;
+  background-color: #4863f7;
+  transition: 0.4s;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
-
+#EnviarNome:hover{
+  background-color: white;
+  color: #4863f7;
+  transform: scale(1.1);
+}
+#perguntas{
+  background-color: #4863f7;
+  border-radius: 8px;
+}
 
 
 .container {
@@ -72,10 +99,11 @@ input[type=text]{
   width: 90%;
   max-width: 800px;
 
-  border: 2px solid #e1e1e6;
+  border: 1px solid #4863f7;
+  box-shadow: 6px 6px 10px black;
   border-radius: 6px;
   padding: 16px;
-  box-shadow: 0 0 2px 2px;
+  
 
   display: flex;
   flex-direction: column;
@@ -83,6 +111,7 @@ input[type=text]{
   align-items: center;
   display: none;
 }
+#equipeResponde{font-size: 2.5rem;}
 
 .questions-container {
   width: 100%;
@@ -132,12 +161,13 @@ input[type=text]{
 
 /* Finish game */
 .final-message {
-  font-size: 20px;
+  font-size: 2rem;
   text-align: center;
 }
 
 .final-message span {
   display: block;
+  font-size: 2rem;
   margin-top: 8px;
 }
 
@@ -150,6 +180,6 @@ input[type=text]{
   background-color: #049b48;
 }
 
-.incorrect {
+.incorrect{
   background-color: #a10101;
 }
