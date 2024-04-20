@@ -16,7 +16,10 @@ let currentQuestionIndex = 0
 let indexQuestionDois = 0 
 
 
-
+let perdaDePonto = 0
+let perdaDePontoDois = 0
+let ganhoDePonto = 0
+let ganhoDePontoDois = 0
 
 
 const questions = [
@@ -137,6 +140,8 @@ const nomeHeaderDois = document.querySelector("#NomeTime2")
 
 const selected  = document.querySelector("#perguntas")
 
+const divGifs = document.querySelector(".gifs")
+const srcGifs = document.querySelector("#srcGifs")
 
 header.classList.add("hide")
 btnEviarNome.addEventListener("click",(e)=>{
@@ -148,10 +153,10 @@ btnEviarNome.addEventListener("click",(e)=>{
   
   
 
-
   nomeHEader(nomeEquipeUm,nomeEquipeDois)
   hide()
   play()
+  
 
   $startGameButton.addEventListener("click", startGame)
   $nextQuestionButton.addEventListener("click", displayNextQuestion)
@@ -170,7 +175,7 @@ function displayNextQuestion() {
     return finishGame()
   }
 
-  console.log(selectedValue)
+  
   if(selectedValue == "1"){
     $questionText.textContent = questions[currentQuestionIndex].question
     questions[currentQuestionIndex].answers.forEach(answer => {
@@ -207,17 +212,16 @@ function resetState() {
   while($answersContainer.firstChild) {
     $answersContainer.removeChild($answersContainer.firstChild)
   }
-  
-
   document.body.removeAttribute("class")
   $nextQuestionButton.classList.add("hide")
+  divGifs.classList.add("hide")
+  
 }
 
 function selectAnswer(event) {
   const answerClicked = event.target
 
   if (answerClicked.dataset.correct) {
-
     pontuacao(nomeEquipeUm)
     pontuacaoGrupoDoiss(nomeEquipeDois)
     document.body.classList.add("correct")
@@ -231,8 +235,6 @@ function selectAnswer(event) {
       button.disabled = true
     })
   } else {
-      
-    
       perdePontoGrupoUm(nomeEquipeUm)
       perdePontoGrupoDois(nomeEquipeDois)
 
@@ -245,11 +247,13 @@ function selectAnswer(event) {
       }
       button.disabled = true
     })
-    if(equipeResponde.textContent == nomeEquipeUm){
-      equipeResponde.textContent = nomeEquipeDois
-    }else if (equipeResponde.textContent == nomeEquipeDois){
-      equipeResponde.textContent = nomeEquipeUm
-    }
+    
+
+      if(equipeResponde.textContent == nomeEquipeUm){
+        equipeResponde.textContent = nomeEquipeDois
+      }else if (equipeResponde.textContent == nomeEquipeDois){
+        equipeResponde.textContent = nomeEquipeUm
+      }
 
   }
   
@@ -267,6 +271,7 @@ function selectAnswer(event) {
   // })
   
 }
+
 
 function finishGame() {
   
@@ -359,12 +364,14 @@ function finishGame() {
   function pontuacao (nomeUm){
     if(equipeResponde.textContent == nomeUm){
       pontuacaoGrupoUm +=1
+      verificarPontuacao()
     }
     
   }
   function pontuacaoGrupoDoiss(NomeDois){
     if( equipeResponde.textContent == NomeDois){
       pontuacaoGrupoDois +=1
+      verificarPontuacaoDois()
     }
   }
   
@@ -382,6 +389,7 @@ function perdePontoGrupoUm (nome){
     if(pontuacaoGrupoUm > 0){
       pontuacaoGrupoUm --
     }
+    verificarPerdePonto()
     
   }
 }
@@ -390,6 +398,7 @@ function perdePontoGrupoDois(nome){
     if(pontuacaoGrupoDois > 0){
       pontuacaoGrupoDois --
     }
+    verificarPerdePontoDois()
     
   }
 } 
@@ -402,6 +411,91 @@ function nomeHEader(nomeUm,nomeDois){
   nomeHeaderUm.textContent = nomeUm
   nomeHeaderDois.textContent = nomeDois
 }
+
+function verificarPontuacao(){
+  if(ganhoDePonto == 0){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/dois.gif")
+    ganhoDePonto++
+  }
+  else if(ganhoDePonto == 1){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/oloko.gif")
+    ganhoDePonto++
+  }
+  else if(ganhoDePonto == 2){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/dms.gif")
+    ganhoDePonto++
+  }
+  else if(ganhoDePonto == 3){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/cris.gif")
+    ganhoDePonto++
+  }
+  else if(ganhoDePonto == 4){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/congratulations.gif")
+    ganhoDePonto++
+  }
+}
+function verificarPontuacaoDois(){
+  if(ganhoDePontoDois == 0){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/dois.gif")
+    ganhoDePontoDois++
+  }
+  else if(ganhoDePontoDois == 1){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/oloko.gif")
+    ganhoDePontoDois++
+  }
+  else if(ganhoDePontoDois == 2){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/dms.gif")
+    ganhoDePontoDois++
+  }
+  else if(ganhoDePontoDois == 3){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/cris.gif")
+    ganhoDePontoDois++
+  }
+  else if(ganhoDePontoDois == 4){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/congratulations.gif")
+    ganhoDePontoDois++
+  }
+}
+function verificarPerdePonto(){
+  if(perdaDePonto == 0){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/err.gif")
+    perdaDePonto++
+  }else if(perdaDePonto == 1){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/bur.gif")
+    perdaDePonto++
+  }
+  else if(perdaDePonto == 2){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/xii.gif")
+    perdaDePonto++
+  }
+  
+  
+}
+function verificarPerdePontoDois(){
+  if(perdaDePontoDois == 0){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/perde.gif")
+    perdaDePontoDois++
+  }else if(perdaDePontoDois == 1){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","/gifs/rsrs.gif")
+    perdaDePontoDois++
+  }
+}
+
 
 
 
