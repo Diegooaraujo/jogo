@@ -442,17 +442,17 @@ function verificarPontuacao(){
 function verificarPontuacaoDois(){
   if(ganhoDePontoDois == 0){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/dois.gif")
+    srcGifs.setAttribute("src","/gifs/cris.gif")
     ganhoDePontoDois++
   }
   else if(ganhoDePontoDois == 1){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/oloko.gif")
+    srcGifs.setAttribute("src","/gifs/dms.gif")
     ganhoDePontoDois++
   }
   else if(ganhoDePontoDois == 2){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/dms.gif")
+    srcGifs.setAttribute("src","/gifs/um.gif")
     ganhoDePontoDois++
   }
   else if(ganhoDePontoDois == 3){
