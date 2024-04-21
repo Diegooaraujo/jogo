@@ -415,70 +415,70 @@ function nomeHEader(nomeUm,nomeDois){
 function verificarPontuacao(){
   if(ganhoDePonto == 0){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/dois.gif")
+    srcGifs.setAttribute("src","gifs/dois.gif")
     ganhoDePonto++
   }
   else if(ganhoDePonto == 1){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/oloko.gif")
+    srcGifs.setAttribute("src","gifs/oloko.gif")
     ganhoDePonto++
   }
   else if(ganhoDePonto == 2){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/dms.gif")
+    srcGifs.setAttribute("src","gifs/dms.gif")
     ganhoDePonto++
   }
   else if(ganhoDePonto == 3){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/cris.gif")
+    srcGifs.setAttribute("src","gifs/cris.gif")
     ganhoDePonto++
   }
   else if(ganhoDePonto == 4){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/congratulations.gif")
+    srcGifs.setAttribute("src","gifs/congratulations.gif")
     ganhoDePonto++
   }
 }
 function verificarPontuacaoDois(){
   if(ganhoDePontoDois == 0){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/cris.gif")
+    srcGifs.setAttribute("src","gifs/cris.gif")
     ganhoDePontoDois++
   }
   else if(ganhoDePontoDois == 1){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/dms.gif")
+    srcGifs.setAttribute("src","gifs/dms.gif")
     ganhoDePontoDois++
   }
   else if(ganhoDePontoDois == 2){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/um.gif")
+    srcGifs.setAttribute("src","gifs/um.gif")
     ganhoDePontoDois++
   }
   else if(ganhoDePontoDois == 3){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/cris.gif")
+    srcGifs.setAttribute("src","gifs/cris.gif")
     ganhoDePontoDois++
   }
   else if(ganhoDePontoDois == 4){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/congratulations.gif")
+    srcGifs.setAttribute("src","gifs/congratulations.gif")
     ganhoDePontoDois++
   }
 }
 function verificarPerdePonto(){
   if(perdaDePonto == 0){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/err.gif")
+    srcGifs.setAttribute("src","gifs/err.gif")
     perdaDePonto++
   }else if(perdaDePonto == 1){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/bur.gif")
+    srcGifs.setAttribute("src","gifs/bur.gif")
     perdaDePonto++
   }
   else if(perdaDePonto == 2){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/xii.gif")
+    srcGifs.setAttribute("src","gifs/xii.gif")
     perdaDePonto++
   }
   
@@ -487,11 +487,11 @@ function verificarPerdePonto(){
 function verificarPerdePontoDois(){
   if(perdaDePontoDois == 0){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/perde.gif")
+    srcGifs.setAttribute("src","gifs/perde.gif")
     perdaDePontoDois++
   }else if(perdaDePontoDois == 1){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","/gifs/rsrs.gif")
+    srcGifs.setAttribute("src","gifs/rsrs.gif")
     perdaDePontoDois++
   }
 }
