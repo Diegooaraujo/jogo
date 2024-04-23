@@ -186,7 +186,6 @@ input[type=text]{
 }
 
 .gifs{
-  border-radius: 50%;
   width: 200px;
   height: 200px;
   position: absolute;
@@ -208,7 +207,6 @@ input[type=text]{
   #srcGifs{
     width: 200px;
     height: 200px;
-    border-radius: 50%;
   }
 }
 
@@ -243,7 +241,6 @@ input[type=text]{
   #srcGifs{
     width: 200px;
     height: 200px;
-    border-radius: 50%;
   }
   body{
     overflow: hidden;

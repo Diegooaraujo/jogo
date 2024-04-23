@@ -14,6 +14,7 @@ let pontuacaoGrupoDois=0
 
 let currentQuestionIndex = 0
 let indexQuestionDois = 0 
+let indexQuestionTres = 0
 
 
 let perdaDePonto = 0
@@ -24,53 +25,99 @@ let ganhoDePontoDois = 0
 
 const questions = [
   {
-    question: "Quais são algumas das mudanças físicas comuns que ocorrem durante a meia-idade?",
+    question: "Como a sociedade pode influenciar a percepção das pessoas sobre seus corpos à medida que envelhecem?",
     answers: [
-      { text: "Melhora na visão de perto", correct: false },
-      { text: "Redução da capacidade auditiva", correct: false },
-      { text: "Perda de cabelo", correct: true },
-      { text: "Aumento da densidade óssea", correct: false }
+      { text: "Promovendo a aceitação da diversidade de corpos.", correct: false },
+      { text: "Refletindo uma variedade de idades na mídia.", correct: false },
+      { text: "Valorizando a juventude e a beleza", correct: true },
+      { text: "Enfatizando a importância da saúde mental.", correct: false }
     ]
   },
   {
-    question: "Qual das seguintes mudanças pode ocorrer na vida social durante a meia-idade?",
+    question: "Por que algumas pessoas podem sentir-se mais inseguras em relação à sua aparência à medida que envelhecem?",
     answers: [
-      { text: "Maior envolvimento em atividades comunitárias", correct: true },
-      { text: "Diminuição da necessidade de interação social", correct: false },
-      { text: "Redução do contato com amigos e familiares", correct: false },
-      { text: "Aumento da participação em festas e eventos sociais", correct: false }
+      { text: "Devido à pressão para se adequarem aos padrões de beleza da juventude.", correct: true },
+      { text: "Porque a mídia mostra corpos de todas as idades como ideais.", correct: false },
+      { text: "Porque a juventude é considerada menos atraente pela sociedade.", correct: false },
+      { text: "Devido à valorização da maturidade pela sociedade.", correct: false }
     ]
   },
   {
-    question: 'Qual das seguintes atividades pode ser benéfica para a saúde mental durante a meia-idade?',
+    question: 'Qual é um dos principais fatores sociais que pode impactar o desenvolvimento psicológico durante a meia-idade?',
     answers: [
-      { text: 'Participação em grupos de apoio', correct: true },
-      { text: 'Isolamento social', correct: false },
-      { text: 'Prática regular de exercícios físicos intensos', correct: false },
-      { text: "Ignorar sentimentos de tristeza e ansiedade", correct: false }
+      { text: ' Expectativas de sucesso financeiro', correct: true },
+      { text: 'Pressão para se manter fisicamente ativo', correct: false },
+      { text: 'Preferências alimentares', correct: false },
+      { text: "Habilidades de comunicação interpessoal ", correct: false }
     ]
   },
   {
-    question: 'Durante a meia-idade, qual das seguintes atividades pode ser benéfica para a saúde física?',
+    question: 'Qual é o papel da mídia na influência da percepção das pessoas sobre seus corpos?',
     answers: [
-      { text: "Ficar sedentário por longos períodos", correct: false },
-      { text: "Praticar exercícios de alta intensidade sem descanso", correct: false },
-      { text: "Ignorar sinais de dor e desconforto", correct: false },
-      { text: "Praticar atividades fisicas regularmente", correct: true }
+      { text: "Promover a aceitação de todos os tipos de corpo.", correct: false },
+      { text: "Refletir os ideais de beleza de todas as idades.", correct: false },
+      { text: "Enfatizar a importância da saúde física sobre a aparência", correct: false },
+      { text: "Exibir corpos jovens como ideais, reforçando a pressão para parecer mais jovem.", correct: true }
     ]
   },
   {
-    question: 'Durante a meia-idade, qual das seguintes opções é uma preocupação comum relacionada à saúde física??',
+    question: 'Como as expectativas de envelhecimento podem influenciar a experiência da meia-idade?',
     answers: [
-      { text: 'Aumento da massa muscula', correct: false },
-      { text: 'Diminuição da flexibilidade', correct: true },
-      { text: 'Melhoria da memória', correct: false },
-      { text: 'Aumento da taxa metabólica', correct: false }
+      { text: 'Exercendo pouca ou nenhuma influência sobre a autoimagem e as metas de vida.', correct: false },
+      { text: 'Moldando a forma como os indivíduos enfrentam os desafios e aproveitam as oportunidades.', correct: true },
+      { text: 'Contribuindo para uma sensação de estabilidade emocional durante essa fase da vida.', correct: false },
+      { text: 'Afetando apenas as relações sociais imediatas.', correct: false }
     ]
   }
 ]
 
 const questionDois = [ {
+  question: "Qual das seguintes afirmativas melhor descreve uma das pressões sociais enfrentadas durante a meia-idade?",
+  answers: [
+    { text: "A necessidade de adquirir novos hobbies para acompanhar as tendências culturais.", correct: false },
+    { text: "A expectativa de manter um estilo de vida financeiramente extravagante.", correct: false },
+    { text: "A pressão para permanecer jovem e alcançar marcos de vida específicos.", correct: true },
+    { text: "O desejo de alcançar uma posição de destaque em organizações de voluntariado.", correct: false }
+  ]
+},
+{
+  question: "Qual das seguintes condições de saúde é mais comum durante a meia-idade?",
+  answers: [
+    { text: "Sarampo", correct: false },
+    { text: "Acne", correct: false },
+    { text: "Diabetes tipo 2", correct: true },
+    { text: "Catapora", correct: false }
+  ]
+},
+{
+  question: "Durante a meia-idade, qual das seguintes preocupações financeiras é mais comum para indivíduos nessa faixa etária?",
+  answers: [
+    { text: "Melhora na visão de perto", correct: false },
+    { text: "Redução da capacidade auditiva", correct: false },
+    { text: "Perda de cabelo", correct: true },
+    { text: "Aumento da densidade óssea", correct: false }
+  ]
+},
+{
+  question: "Durante a meia-idade, quais desses fatores podem contribuir para um aumento do estresse?",
+  answers: [
+    { text: "Redução das responsabilidades familiares", correct: false },
+    { text: "Estabilidade financeira", correct: false },
+    { text: "Preocupações com a saúde dos pais idosos", correct: true },
+    { text: "Melhoria na qualidade do sono", correct: false }
+  ]
+},
+{
+  question: "Qual é uma das principais preocupações financeiras durante a meia-idade?",
+  answers: [
+    { text: "Pagar pela faculdade dos filhos", correct: false },
+    { text: "Comprar uma casa pela primeira vez", correct: false },
+    { text: "Planejar para a aposentadoria", correct: true },
+    { text: "Economizar para uma viagem de férias de luxo", correct: false }
+  ]
+},
+]
+const questionTres = [ {
   question: "Durante a meia-idade, qual desses fatores geralmente não contribui para mudanças emocionais?",
   answers: [
     { text: "Transição de carreira", correct: false },
@@ -204,6 +251,20 @@ function displayNextQuestion() {
 
     newAsnwer.addEventListener("click", selectAnswer)
   })
+  }else if(selectedValue =="3"){
+    $questionText.textContent = questionTres[indexQuestionTres].question
+    questionDois[indexQuestionTres].answers.forEach(answer => {
+    const newAsnwer = document.createElement("button")
+    newAsnwer.classList.add("button", "answer")
+    newAsnwer.textContent = answer.text
+    if (answer.correct) {
+      
+      newAsnwer.dataset.correct = answer.correct
+    }
+    $answersContainer.appendChild(newAsnwer)
+
+    newAsnwer.addEventListener("click", selectAnswer)
+  })
   }
   
 }
@@ -259,6 +320,7 @@ function selectAnswer(event) {
   
   currentQuestionIndex++
   indexQuestionDois++
+  indexQuestionTres++
   $nextQuestionButton.classList.remove("hide")
   mostrarPontos()
   // document.querySelectorAll(".answer").forEach(button => {
