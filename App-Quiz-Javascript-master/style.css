@@ -194,6 +194,18 @@ input[type=text]{
   height: 250px;
   
 }
+.ganhador{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 730px;
+  top: 300px; 
+}
+#ganhadorGif{
+  width: 250px;
+  height: 250px;
+}
+
 @media screen and (max-width:1400px){
   .gifs{
     

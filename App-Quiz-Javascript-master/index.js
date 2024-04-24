@@ -9,7 +9,12 @@ let pontuacaoGrupoUm = 0
 let pontuacaoGrupoDois=0
 
 
+function numRandom(){
+  return Math.floor(Math.random()*4)
 
+}
+let randomNum = numRandom()
+console.log(randomNum)
 
 
 let currentQuestionIndex = 0
@@ -190,6 +195,9 @@ const selected  = document.querySelector("#perguntas")
 const divGifs = document.querySelector(".gifs")
 const srcGifs = document.querySelector("#srcGifs")
 
+const ganhadorDiv = document.querySelector(".ganhador")
+const ganhadorGif = document.querySelector("#ganhadorGif")
+
 header.classList.add("hide")
 btnEviarNome.addEventListener("click",(e)=>{
   e.preventDefault()
@@ -339,6 +347,7 @@ function finishGame() {
   
   
   if (pontuacaoGrupoDois>pontuacaoGrupoUm){
+    gifGnanhador()
     $questionsContainer.innerHTML = 
     `
       <p class="final-message">
@@ -355,6 +364,7 @@ function finishGame() {
       </button>
     `
   }else if(pontuacaoGrupoUm>pontuacaoGrupoDois){
+    gifGnanhador()
     $questionsContainer.innerHTML = 
     `
       <p class="final-message">
@@ -371,6 +381,7 @@ function finishGame() {
       </button>
     `
   }else if(pontuacaoGrupoUm==pontuacaoGrupoDois){
+    empatar()
     $questionsContainer.innerHTML =  ` 
     <h1>EMPATE</h1>
     <p class="final-message">
@@ -419,6 +430,9 @@ function finishGame() {
 
     }else if (letra == "l"){
       equipeResponde.textContent = `${nomeEquipeDois}`
+    }
+    else{
+      alert("digite apenas A ou L ")
     }
   }
   
@@ -482,7 +496,7 @@ function verificarPontuacao(){
   }
   else if(ganhoDePonto == 1){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","gifs/oloko.gif")
+    srcGifs.setAttribute("src","gifs/cris.gif")
     ganhoDePonto++
   }
   else if(ganhoDePonto == 2){
@@ -492,7 +506,7 @@ function verificarPontuacao(){
   }
   else if(ganhoDePonto == 3){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","gifs/cris.gif")
+    srcGifs.setAttribute("src","gifs/oloko.gif")
     ganhoDePonto++
   }
   else if(ganhoDePonto == 4){
@@ -504,17 +518,17 @@ function verificarPontuacao(){
 function verificarPontuacaoDois(){
   if(ganhoDePontoDois == 0){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","gifs/cris.gif")
+    srcGifs.setAttribute("src","gifs/congratulations.gif")
     ganhoDePontoDois++
   }
   else if(ganhoDePontoDois == 1){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","gifs/dms.gif")
+    srcGifs.setAttribute("src","gifs/um.gif")
     ganhoDePontoDois++
   }
   else if(ganhoDePontoDois == 2){
     divGifs.classList.remove("hide")
-    srcGifs.setAttribute("src","gifs/um.gif")
+    srcGifs.setAttribute("src","gifs/yeah.gif")
     ganhoDePontoDois++
   }
   else if(ganhoDePontoDois == 3){
@@ -543,6 +557,11 @@ function verificarPerdePonto(){
     srcGifs.setAttribute("src","gifs/xii.gif")
     perdaDePonto++
   }
+  else if(perdaDePonto == 3){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","gifs/choro.gif")
+    perdaDePonto++
+  }
   
   
 }
@@ -555,10 +574,52 @@ function verificarPerdePontoDois(){
     divGifs.classList.remove("hide")
     srcGifs.setAttribute("src","gifs/rsrs.gif")
     perdaDePontoDois++
+  }else if(perdaDePontoDois == 2){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","gifs/nao.gif")
+    perdaDePontoDois++
+  }else if(perdaDePontoDois == 3){
+    divGifs.classList.remove("hide")
+    srcGifs.setAttribute("src","gifs/xii.gif")
+    perdaDePontoDois++
   }
 }
 
+function gifGnanhador(){
+  if(randomNum == 0){
+    divGifs.classList.remove("hide")
+    ganhadorDiv.classList.remove("hide")
+    ganhadorGif.setAttribute("src","gifs/estrelas2.gif")
+    srcGifs.setAttribute("src","gifs/trofeu1.gif")
+    
+  }else if(randomNum == 1){
+    divGifs.classList.remove("hide")
+    ganhadorDiv.classList.remove("hide")
+    ganhadorGif.setAttribute("src","gifs/winner3.gif")
+    
+    srcGifs.setAttribute("src","gifs/trofeu2.gif")
+    
+  }
+  else if(randomNum == 2){
+    divGifs.classList.remove("hide")
+    ganhadorDiv.classList.remove("hide")
+    ganhadorGif.setAttribute("src","gifs/estrelas.gif")
+    srcGifs.setAttribute("src","gifs/trofeu3.gif")
+    
+  }
+  else if(randomNum == 3){
+    divGifs.classList.remove("hide")
+    ganhadorDiv.classList.remove("hide")
+    ganhadorGif.setAttribute("src","gifs/trofeu2.gif")
+    srcGifs.setAttribute("src","gifs/estrelas.gif")
+    
+  }
+}
 
+function empatar(){
+  divGifs.classList.remove("hide")
+  srcGifs.setAttribute("src","gifs/empate.gif")
+}
 
 
 
