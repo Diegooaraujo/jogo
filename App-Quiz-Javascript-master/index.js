@@ -80,26 +80,26 @@ const questionDois = [ {
   question: "Qual das seguintes afirmativas melhor descreve uma das pressões sociais enfrentadas durante a meia-idade?",
   answers: [
     { text: "A necessidade de adquirir novos hobbies para acompanhar as tendências culturais.", correct: false },
-    { text: "A expectativa de manter um estilo de vida financeiramente extravagante.", correct: false },
     { text: "A pressão para permanecer jovem e alcançar marcos de vida específicos.", correct: true },
+    { text: "A expectativa de manter um estilo de vida financeiramente extravagante.", correct: false },
     { text: "O desejo de alcançar uma posição de destaque em organizações de voluntariado.", correct: false }
   ]
 },
 {
-  question: "Qual das seguintes condições de saúde é mais comum durante a meia-idade?",
+  question: "Em indivíduos de meia-idade, a simplificação conceitual refere-se á:",
   answers: [
-    { text: "Sarampo", correct: false },
-    { text: "Acne", correct: false },
-    { text: "Diabetes tipo 2", correct: true },
-    { text: "Catapora", correct: false }
+    { text: "chegada da idade avançada e sua simplicidade com base na meia-idade.", correct: false },
+    { text: "mudança e alimentação positiva de uma base espiritual saudavel.", correct: false },
+    { text: "capacidade de reduzir complexidade ou conceitos multifacetados em ideias mais simples.", correct: true },
+    { text: "Uma tendência a buscar novas experiências e desafios.", correct: false }
   ]
 },
 {
   question: "Durante a meia-idade, qual das seguintes preocupações financeiras é mais comum para indivíduos nessa faixa etária?",
   answers: [
+    { text: "Perda de cabelo", correct: true },
     { text: "Melhora na visão de perto", correct: false },
     { text: "Redução da capacidade auditiva", correct: false },
-    { text: "Perda de cabelo", correct: true },
     { text: "Aumento da densidade óssea", correct: false }
   ]
 },
@@ -108,35 +108,35 @@ const questionDois = [ {
   answers: [
     { text: "Redução das responsabilidades familiares", correct: false },
     { text: "Estabilidade financeira", correct: false },
-    { text: "Preocupações com a saúde dos pais idosos", correct: true },
-    { text: "Melhoria na qualidade do sono", correct: false }
+    { text: "Melhoria na qualidade do sono", correct: false },
+    { text: "Preocupações com a saúde dos pais idosos", correct: true }
   ]
 },
 {
-  question: "Qual é uma das principais preocupações financeiras durante a meia-idade?",
+  question: "Referente a um exemplo de simplificação conceitual, a alternativa correta seria:",
   answers: [
-    { text: "Pagar pela faculdade dos filhos", correct: false },
-    { text: "Comprar uma casa pela primeira vez", correct: false },
-    { text: "Planejar para a aposentadoria", correct: true },
-    { text: "Economizar para uma viagem de férias de luxo", correct: false }
+    { text: " Uma abordagem cognitiva que envolve a reestruturação de esquemas mentais para simplificar informações complexas, ", correct: false },
+    { text: "Um fenômeno psicológico em que indivíduos de meia-idade recorrem à simplificação heurística para reduzir a carga cognitiva", correct: false },
+    { text: "Em vez de detalhes tecnicos sobre como funciona um dispositivo, explicar o proposito do dispositivo", correct: true },
+    { text: "Um processo psicológico no qual indivíduos de meia-idade desenvolvem estratégias simplificadas para lidar com a sobrecarga cognitiva", correct: false }
   ]
 },
 ]
 const questionTres = [ {
-  question: "Durante a meia-idade, qual desses fatores geralmente não contribui para mudanças emocionais?",
+  question: "Muitas pessoas de meia-idade tendem a se preocupar mais com questões de saúde, como doenças crônicas, controle de peso e saúde cardiovascular. Essa sitação representa:",
   answers: [
-    { text: "Transição de carreira", correct: false },
-    { text: "Início de novos relacionamentos amorosos", correct: false },
-    { text: " Aumento da estabilidade financeira", correct: true },
-    { text: "Vazio do ninho (filhos saindo de casa)", correct: false }
+    { text: "Durante a meia-idade, há uma tendência a uma vigilância aumentada em relação à saúde, com um foco particular em condições crônicas", correct: false },
+    { text: " No período intermediário da vida, é comum uma preocupação crescente com a saúde, especialmente no que diz respeito a controle de peso e bem-estar cardiovascular.", correct: false },
+    { text: " homogeneidade. como alguns alguns comportamentos, condições e necessidades comuns podem ser observados em indivíduos de meia-idade", correct: true },
+    { text: "Indivíduos na meia-idade muitas vezes intensificam sua atenção à saúde, priorizando o controle de doenças crônicas, manutenção do peso ideal e promoção da saúde cardiovascular.", correct: false }
   ]
 },
 {
   question: "Qual das seguintes condições de saúde é mais comum durante a meia-idade?",
   answers: [
     { text: "Sarampo", correct: false },
-    { text: "Acne", correct: false },
     { text: "Diabetes tipo 2", correct: true },
+    { text: "Acne", correct: false },
     { text: "Catapora", correct: false }
   ]
 },
@@ -145,16 +145,16 @@ const questionTres = [ {
   answers: [
     { text: "Melhora na visão de perto", correct: false },
     { text: "Redução da capacidade auditiva", correct: false },
-    { text: "Perda de cabelo", correct: true },
-    { text: "Aumento da densidade óssea", correct: false }
+    { text: "Aumento da densidade óssea", correct: false },
+    { text: "Perda de cabelo", correct: true }
   ]
 },
 {
   question: "Durante a meia-idade, quais desses fatores podem contribuir para um aumento do estresse?",
   answers: [
+    { text: "Preocupações com a saúde dos pais idosos", correct: true },
     { text: "Redução das responsabilidades familiares", correct: false },
     { text: "Estabilidade financeira", correct: false },
-    { text: "Preocupações com a saúde dos pais idosos", correct: true },
     { text: "Melhoria na qualidade do sono", correct: false }
   ]
 },
@@ -162,8 +162,8 @@ const questionTres = [ {
   question: "Qual é uma das principais preocupações financeiras durante a meia-idade?",
   answers: [
     { text: "Pagar pela faculdade dos filhos", correct: false },
-    { text: "Comprar uma casa pela primeira vez", correct: false },
     { text: "Planejar para a aposentadoria", correct: true },
+    { text: "Comprar uma casa pela primeira vez", correct: false },
     { text: "Economizar para uma viagem de férias de luxo", correct: false }
   ]
 },
@@ -261,7 +261,7 @@ function displayNextQuestion() {
   })
   }else if(selectedValue =="3"){
     $questionText.textContent = questionTres[indexQuestionTres].question
-    questionDois[indexQuestionTres].answers.forEach(answer => {
+    questionTres[indexQuestionTres].answers.forEach(answer => {
     const newAsnwer = document.createElement("button")
     newAsnwer.classList.add("button", "answer")
     newAsnwer.textContent = answer.text
