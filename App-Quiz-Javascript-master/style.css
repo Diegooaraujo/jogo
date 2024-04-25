@@ -198,12 +198,62 @@ input[type=text]{
   width: 200px;
   height: 200px;
   position: absolute;
-  left: 730px;
-  top: 300px; 
+  left: 820px;
+  top: 330px; 
 }
 #ganhadorGif{
   width: 250px;
   height: 250px;
+}
+
+@media screen and (max-width:2469px){
+  .gifs{
+    
+    right: 600px;
+    top: 360px; 
+  }
+  #srcGifs{
+    width: 200px;
+    height: 200px;
+  }
+  .ganhador{
+    
+    left: 720px;
+    top: 325px; 
+  }
+}
+
+@media screen and (max-width:2000px){
+  .gifs{
+    
+    right: 400px;
+    top: 360px; 
+  }
+  #srcGifs{
+    width: 200px;
+    height: 200px;
+  }
+  .ganhador{
+   
+    left: 520px;
+    top: 325px; 
+  }
+}
+@media screen and (max-width:1724px){
+  .gifs{
+    
+    right: 250px;
+    top: 300px; 
+  }
+  #srcGifs{
+    width: 200px;
+    height: 200px;
+  }
+  .ganhador{
+    
+    left: 350px;
+    top: 325px; 
+  }
 }
 
 @media screen and (max-width:1400px){
@@ -215,6 +265,11 @@ input[type=text]{
   #srcGifs{
     width: 200px;
     height: 200px;
+  }
+  .ganhador{
+   
+    left: 250px;
+    top: 325px; 
   }
 }
 
