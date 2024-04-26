@@ -141,30 +141,30 @@ const questionTres = [ {
   ]
 },
 {
-  question: "Durante a meia-idade, qual das seguintes preocupações financeiras é mais comum para indivíduos nessa faixa etária?",
+  question: "Qual é o principal processo biológico associado à negação do envelhecimento?",
   answers: [
-    { text: "Melhora na visão de perto", correct: false },
-    { text: "Redução da capacidade auditiva", correct: false },
-    { text: "Aumento da densidade óssea", correct: false },
-    { text: "Perda de cabelo", correct: true }
+    { text: "Acumulação de toxinas no organismo", correct: false },
+    { text: "Degradação das mitocôndrias.", correct: false },
+    { text: "Aumento da produção de radicais livres", correct: false },
+    { text: "Redução do metabolismo celular", correct: true }
   ]
 },
 {
-  question: "Durante a meia-idade, quais desses fatores podem contribuir para um aumento do estresse?",
+  question: "Quais são as principais abordagens para a negação do envelhecimento?",
   answers: [
-    { text: "Preocupações com a saúde dos pais idosos", correct: true },
-    { text: "Redução das responsabilidades familiares", correct: false },
-    { text: "Estabilidade financeira", correct: false },
-    { text: "Melhoria na qualidade do sono", correct: false }
+    { text: "Terapia hormonal e restrição calórica", correct: true },
+    { text: "Cirurgia estética para remover rugas e sinais de envelhecimento.", correct: false },
+    { text: "Terapia com células-tronco para reparar tecidos danificados.", correct: false },
+    { text: " Utilização de produtos de skincare", correct: false }
   ]
 },
 {
-  question: "Qual é uma das principais preocupações financeiras durante a meia-idade?",
+  question: "Quais são os potenciais benefícios da negação do envelhecimento?",
   answers: [
-    { text: "Pagar pela faculdade dos filhos", correct: false },
-    { text: "Planejar para a aposentadoria", correct: true },
-    { text: "Comprar uma casa pela primeira vez", correct: false },
-    { text: "Economizar para uma viagem de férias de luxo", correct: false }
+    { text: "Redução da taxa de natalidade e consequente estabilização da população.", correct: false },
+    { text: "Melhoria da função cognitiva e aumento da longevidade", correct: true },
+    { text: "Aumento da desigualdade social devido ao acesso limitado a tecnologias de rejuvenescimento.", correct: false },
+    { text: "Aumento da pressão sobre os recursos naturais e infraestrutura devido à superpopulação resultante da prolongada longevidade.", correct: false }
   ]
 },
 ]
