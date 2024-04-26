@@ -95,21 +95,21 @@ const questionDois = [ {
   ]
 },
 {
-  question: "Durante a meia-idade, qual das seguintes preocupações financeiras é mais comum para indivíduos nessa faixa etária?",
+  question: "Quais benefícios a pesquisa acadêmica perde devido à falta de exploração das contribuições das pessoas na meia idade?",
   answers: [
-    { text: "Perda de cabelo", correct: true },
-    { text: "Melhora na visão de perto", correct: false },
-    { text: "Redução da capacidade auditiva", correct: false },
-    { text: "Aumento da densidade óssea", correct: false }
+    { text: "Soluções inovadoras e Diversidade de perspectivas", correct: true },
+    { text: "compreensão limitada das questões relacionadas ao envelhecimento", correct: false },
+    { text: " perpetuação de estereótipos negativos e idadeísmo na sociedade", correct: false },
+    { text: "limita a compreensão das transições e mudanças sociais, econômicas e culturais", correct: false }
   ]
 },
 {
-  question: "Durante a meia-idade, quais desses fatores podem contribuir para um aumento do estresse?",
+  question: " Como a falta de pesquisa sobre as pessoas na meia idade impacta negativamente políticas públicas e programas de saúde voltados para essa faixa etária?",
   answers: [
-    { text: "Redução das responsabilidades familiares", correct: false },
-    { text: "Estabilidade financeira", correct: false },
-    { text: "Melhoria na qualidade do sono", correct: false },
-    { text: "Preocupações com a saúde dos pais idosos", correct: true }
+    { text: "Redução dos custos associados aos cuidados de saúde", correct: false },
+    { text: "compromete a capacidade de compreender as interações complexas entre fatores socioeconômicos, ambientais e biológicos", correct: false },
+    { text: "prejudica a capacidade de desenvolver políticas públicas e programas de saúde adaptados.", correct: false },
+    { text: "Serviços inadequados e falta de acesso a tratamentos e intervenções preventivas.", correct: true }
   ]
 },
 {
@@ -126,18 +126,18 @@ const questionTres = [ {
   question: "Muitas pessoas de meia-idade tendem a se preocupar mais com questões de saúde, como doenças crônicas, controle de peso e saúde cardiovascular. Essa sitação representa:",
   answers: [
     { text: "Durante a meia-idade, há uma tendência a uma vigilância aumentada em relação à saúde, com um foco particular em condições crônicas", correct: false },
-    { text: " No período intermediário da vida, é comum uma preocupação crescente com a saúde, especialmente no que diz respeito a controle de peso e bem-estar cardiovascular.", correct: false },
+    { text: " No período intermediário da vida, não é comum uma preocupação crescente com a saúde, especialmente no que diz respeito a controle de peso e bem-estar cardiovascular.", correct: false },
     { text: " homogeneidade. como alguns alguns comportamentos, condições e necessidades comuns podem ser observados em indivíduos de meia-idade", correct: true },
-    { text: "Indivíduos na meia-idade muitas vezes intensificam sua atenção à saúde, priorizando o controle de doenças crônicas, manutenção do peso ideal e promoção da saúde cardiovascular.", correct: false }
+    { text: "A preocupação de pessoas de meia-idade com questões de saúde, como doenças crônicas, controle de peso e saúde cardiovascular, é frequentemente influenciada por experiências pessoais de amigos ou familiares", correct: false }
   ]
 },
 {
-  question: "Qual das seguintes condições de saúde é mais comum durante a meia-idade?",
+  question: "Como a falta de exploração acadêmica sobre a meia idade impacta nossa compreensão das necessidades e desafios enfrentados por pessoas nessa faixa etária?",
   answers: [
-    { text: "Sarampo", correct: false },
-    { text: "Diabetes tipo 2", correct: true },
-    { text: "Acne", correct: false },
-    { text: "Catapora", correct: false }
+    { text: "resulta em uma compreensão superficial dos desafios dessa faixa etária", correct: false },
+    { text: "Limita nossa compreensão das necessidades e desafios dessa faixa etária", correct: true },
+    { text: " resulta em uma abordagem fragmentada", correct: false },
+    { text: "políticas públicas desconectadas da realidade", correct: false }
   ]
 },
 {
@@ -432,7 +432,8 @@ function finishGame() {
       equipeResponde.textContent = `${nomeEquipeDois}`
     }
     else{
-      alert("digite apenas A ou L ")
+      alert("digite 'A' para o grupo um ou 'L' para o grupo dois ")
+      window.location.reload()
     }
   }
   
